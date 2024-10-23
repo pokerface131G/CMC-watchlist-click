@@ -5,7 +5,6 @@
 // @description  Click specific element on coinmarketcap.com.
 // @match        *://*.coinmarketcap.com/watchlist
 // @grant        none
-// 可变时间间隔  57秒点击，60秒一个循环。注意。
 // ==/UserScript==
 
 (function () {
@@ -19,9 +18,10 @@
                 setTimeout(() => {
                     elements[i].click();
                 }, 57000);
+                // 可变时间间隔  57秒 涨，3秒 跌。60秒 一个循环。妙。
                 setTimeout(() => {
                     elements[i].click();
-                }, 60000);
+                }, 3000);
                 break;
             }
         }
