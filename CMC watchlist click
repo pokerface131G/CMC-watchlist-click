@@ -21,7 +21,7 @@
         }
     }
 
-    setInterval(clickElements, 9000);
+    setInterval(clickElements, 30000);
 })();
 
 
