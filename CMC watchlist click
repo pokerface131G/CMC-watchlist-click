@@ -55,7 +55,6 @@
 // @description  Click specific elements on coinmarketcap.com.
 // @match        *://*.coinmarketcap.com/watchlist
 // @grant        none
-// 固定时间间隔
 // ==/UserScript==
 
 
@@ -73,6 +72,7 @@
     }
 
     setInterval(clickElement, 9000);
+    // 固定时间间隔
 })();
 
 
