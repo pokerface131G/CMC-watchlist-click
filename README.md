@@ -34,4 +34,43 @@ https://www.doubao.com/
 })();
 
 
+
+
+
+////////////////////////////////////////////
+// 调整时间间隔 
+// ==UserScript==
+// @name         CoinMarketCap Clicker
+// @namespace    http://tampermonkey.net/
+// @version      1.0
+// @description  Click specific elements on coinmarketcap.com.
+// @match        *://*.coinmarketcap.com/*
+// @grant        none
+// ==/UserScript==
+
+(function () {
+    'use strict';
+
+    function clickElements() {
+        const elements = document.querySelectorAll('p.sc-71024e3e-0.llNEXf');
+        if (elements.length > 0) {
+            elements.forEach(element => {
+                element.click();
+                setTimeout(() => {
+                    element.click();
+                }, 60000);
+                setTimeout(() => {
+                    element.click();
+                }, 2000);
+            });
+        } else {
+            console.warn('[-] No elements found to click.');
+        }
+    }
+
+    setInterval(clickElements, 60000);
+})();
+
+
+
  
