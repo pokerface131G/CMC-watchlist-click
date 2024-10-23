@@ -2,27 +2,32 @@
 // @name         CoinMarketCap Clicker
 // @namespace    http://tampermonkey.net/
 // @version      1.0
-// @description  Click specific elements on coinmarketcap.com.
+// @description  Click specific element on coinmarketcap.com.
 // @match        *://*.coinmarketcap.com/watchlist
 // @grant        none
-// 固定时间间隔
+// 可变时间间隔  57秒点击，60秒一个循环。注意。
 // ==/UserScript==
 
 (function () {
     'use strict';
 
-    function clickElements() {
+    function clickAndWait() {
         const elements = document.querySelectorAll('p.sc-71024e3e-0.llNEXf');
-        if (elements.length > 0) {
-            elements.forEach(element => {
-                element.click();
-            });
-        } else {
-            console.warn('[-] No elements found to click.');
+        for (let i = 0; i < elements.length; i++) {
+            if (elements[i].textContent === '1h %') {
+                elements[i].click();
+                setTimeout(() => {
+                    elements[i].click();
+                }, 57000);
+                setTimeout(() => {
+                    elements[i].click();
+                }, 60000);
+                break;
+            }
         }
     }
 
-    setInterval(clickElements, 30000);
+    setInterval(clickAndWait, 60000);
 })();
 
 
@@ -31,7 +36,18 @@
 
 
 
-//////////////////////////////////////
+
+
+
+
+
+
+
+
+
+
+
+////////////////////////////////////
 // ==UserScript==
 // @name         CoinMarketCap Clicker
 // @namespace    http://tampermonkey.net/
@@ -39,30 +55,30 @@
 // @description  Click specific elements on coinmarketcap.com.
 // @match        *://*.coinmarketcap.com/watchlist
 // @grant        none
-// 可变时间间隔
+// 固定时间间隔
 // ==/UserScript==
+
 
 (function () {
     'use strict';
 
-    function clickElements() {
+    function clickElement() {
         const elements = document.querySelectorAll('p.sc-71024e3e-0.llNEXf');
-        if (elements.length > 0) {
-            elements.forEach(element => {
-                element.click();
-                setTimeout(() => {
-                    element.click();
-                }, 60000);
-                setTimeout(() => {
-                    element.click();
-                }, 2000);
-            });
-        } else {
-            console.warn('[-] No elements found to click.');
+        for (let i = 0; i < elements.length; i++) {
+            if (elements[i].textContent === '1h %') {
+                elements[i].click();
+                break;
+            }
         }
     }
 
-    setInterval(clickElements, 60000);
+    setInterval(clickElement, 9000);
 })();
+
+
+
+
+
+
 
 
