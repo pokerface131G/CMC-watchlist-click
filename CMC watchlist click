@@ -17,7 +17,7 @@
                 elements[i].click();
                 setTimeout(() => {
                     elements[i].click();
-                }, 57000);
+                }, 7000);
                 // 可变时间间隔  57秒 涨，3秒 跌。60秒 一个循环。妙。
                 setTimeout(() => {
                     elements[i].click();
@@ -27,7 +27,7 @@
         }
     }
 
-    setInterval(clickAndWait, 60000);
+    setInterval(clickAndWait, 10000);
 })();
 
 
